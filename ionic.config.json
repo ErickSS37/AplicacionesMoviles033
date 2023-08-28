@@ -1,0 +1,7 @@
+{
+  "name": "Hola Mundo AM033 Erick Soriano",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
