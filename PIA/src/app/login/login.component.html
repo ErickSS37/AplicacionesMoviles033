@@ -15,14 +15,14 @@
     </ion-card-header>
     <ion-card-content>
       <ion-item>
-        <ion-input placeholder="Correo Electrónico"></ion-input>
+        <ion-input type="text" placeholder="Correo Electrónico" id="correo"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input placeholder="Contraseña"></ion-input>
+        <ion-input type="text" placeholder="Contraseña" id="contra"></ion-input>
       </ion-item>
       <br>
 
-      <ion-button>Inicia Sesión</ion-button><br><br>
+      <ion-button [routerLink] = "['/home']" (onclick) = "login()">Inicia Sesión</ion-button><br><br>
       <ion-card-subtitle>
         Si aún no tienes una cuenta
       </ion-card-subtitle>

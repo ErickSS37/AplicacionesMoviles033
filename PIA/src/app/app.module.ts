@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 
+
 @NgModule({
   declarations: [AppComponent, LoginComponent, RegistroComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],

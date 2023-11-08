@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
+import { CambioContraComponent } from './cambio-contra/cambio-contra.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'registro',
     component: RegistroComponent
+  },
+  {
+    path: 'cambio-contra',
+    component: CambioContraComponent
   }
 ];
 
