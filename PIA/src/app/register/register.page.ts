@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './../services/auth.service';
 import { Router } from '@angular/router';
+import { AuthGuard } from '../shared/auth.guard';
+
+
 
 @Component({
   selector: 'app-register',
@@ -8,27 +11,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-  constructor(private authSvc: AuthService, private router: Router) {}
+  constructor(private authSvc: AuthService, private router: Router, private guard:AuthGuard) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    const auth = this.authSvc.afAuth.currentUser;
+    if(auth){
+      this.redirectUser();
+      alert("Ya hay una sesión");
+    }
+  }
 
   async onRegister(email, password) {
     try {
       const user = await this.authSvc.register(email.value, password.value);
       if (user) {
-        const isVerified = this.authSvc.isEmailVerified(user);
-        this.redirectUser(isVerified);
+        this.redirectUser();
       }
     } catch (error) {
       console.log('Error', error);
     }
   }
 
-  private redirectUser(isVerified: boolean): void {
-    if (isVerified) {
-      this.router.navigate(['admin']);
-    } else {
-      this.router.navigate(['verify-email']);
-    }
+  private redirectUser(): void {
+      this.router.navigate(['home']);
   }
 }

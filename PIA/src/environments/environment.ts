@@ -5,15 +5,16 @@
 export const environment = {
   production: false,
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-firebaseConfig : {
-  apiKey: "AIzaSyDJtw_boOzgPP90wEyGZbIXvSPTX2JZFxc",
-  authDomain: "pia-am-1dbd4.firebaseapp.com",
-  projectId: "pia-am-1dbd4",
-  storageBucket: "pia-am-1dbd4.appspot.com",
-  messagingSenderId: "98541651832",
-  appId: "1:98541651832:web:8095d01ab26e0c41782a8d",
-  measurementId: "G-KPG9G82W91"
-},
+  firebaseConfig : {
+    apiKey: "AIzaSyA9M8LpVMuz-V2wA95XLOBrsFTl6i0MpWQ",
+    authDomain: "pia-am033.firebaseapp.com",
+    databaseURL: "https://pia-am033-default-rtdb.firebaseio.com",
+    projectId: "pia-am033",
+    storageBucket: "pia-am033.appspot.com",
+    messagingSenderId: "1091677607112",
+    appId: "1:1091677607112:web:bc707309c514424d54c1fd",
+    measurementId: "G-KPG9G82W91"
+  }
 };
 
 /*

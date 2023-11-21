@@ -1,9 +1,9 @@
 {
   "targets": {
-    "login-ng-b97ae": {
+    "PIA-AM033": {
       "hosting": {
         "app": [
-          "login-ng-b97ae"
+          "PIA-AM033"
         ]
       }
     }

@@ -1,28 +1,63 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tienda en linea
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-menu contentId="main-content" side="start">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title>¿Qué deseas hacer?</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-content class="ion-padding">
+    <ion-list>
+      <ion-item>
+        <ion-button [routerLink] = "['/admin']" fill="clear">
+          Configurar mi cuenta
+        </ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-button [routerLink] = "['/login']" fill="clear">
+          Iniciar Sesión
+        </ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-button onclick="logout()" fill="clear">
+          Cerrar Sesión 
+        </ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-button [routerLink] = "['/login']" fill="clear">
+          Sobre
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Tienda</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
 
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="home" routerLink="/home">
-        <ion-icon name="home"></ion-icon>
-        Inicio
-      </ion-tab-button>
-      <ion-tab-button tab="login" routerLink="/login">
-        <ion-icon name="log-in-outline"></ion-icon>
-        Login
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
+  <ion-list>
+    <ion-item *ngFor="let item of articulos; let index">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{item.nombre}}</ion-card-title>
+          <ion-card-subtitle>{{item.precio}}</ion-card-subtitle>
+        </ion-card-header>
+      
+        <ion-card-content>
+          {{item.tipo}}
+        </ion-card-content>
+      
+        <ion-button fill="clear" onclick="">Estoy interesado</ion-button>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+  <ion-infinite-scroll>
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  
 </ion-content>

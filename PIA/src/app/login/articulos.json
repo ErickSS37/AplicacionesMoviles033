@@ -1,0 +1,62 @@
+ [
+    {
+        "id":"1",
+        "tipo":"Circuito Logico",
+        "nombre":"UA78L08ACLP",
+        "precio":"$14.00"
+    },
+    {
+        "id":"2",
+        "tipo":"Circuito Logico",
+        "nombre":"MC34063AP1",
+        "precio":"$27.00"
+    },
+    {
+        "id":"3",
+        "tipo":"Circuito Logico",
+        "nombre":"SN74LS00N",
+        "precio":"$14.00"
+    },
+    {
+        "id":"4",
+        "tipo":"Circuito Logico",
+        "nombre":"SN74LS02",
+        "precio":"$13.00"
+    },
+    {
+        "id":"5",
+        "tipo":"Circuito Logico",
+        "nombre":"HD74LS30N",
+        "precio":"$12.00"
+    },
+    {
+        "id":"6",
+        "tipo":"Capacitor",
+        "nombre":"CE-220/63V",
+        "precio":"$10.00"
+    },
+    {
+        "id":"7",
+        "tipo":"Capacitor",
+        "nombre":"E1-63R",
+        "precio":"$3.00"
+    },  
+    {
+        "id":"8",
+        "tipo":"Capacitor",
+        "nombre":"2.2UF63V",
+        "precio":"$3.00"
+    },
+    {
+        "id":"9",
+        "tipo":"Capacitor",
+        "nombre":"CE-330/16V-TEAPO",
+        "precio":"$7.00"
+    },
+    {
+        "id":"10",
+        "tipo":"Capacitor",
+        "nombre":"CE-1000/25V-TEAPO",
+        "precio":"$7.00"
+    }
+]
