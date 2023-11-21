@@ -20,12 +20,9 @@ export class HomePage implements OnInit{
   constructor(private authSvc:AuthService, private router:Router){}
 
   logout(){
-    const user = this.authSvc.afAuth.currentUser;
-    if(user == null){
+    this.authSvc.logout().then(()=>{
       this.redirectUser();
-    }else{
-      this.authSvc.logout();
-    }
+    });
   }
 
   private redirectUser(): void {

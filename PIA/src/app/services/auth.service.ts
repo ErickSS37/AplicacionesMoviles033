@@ -5,6 +5,9 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import * as firebase from 'firebase';
+
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +16,7 @@ import { switchMap } from 'rxjs/operators';
 export class AuthService {
   public user$: Observable<User>;
 
-  constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore) {
+  constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore, private router:Router) {
     this.user$ = this.afAuth.authState.pipe(
       switchMap((user) => {
         if (user) {
@@ -24,21 +27,44 @@ export class AuthService {
     );
   }
 
-  async resetPassword(email: string): Promise<void> {
+  
+
+  updateData(){
+    this.user$ = this.afAuth.authState.pipe(
+      switchMap((user) => {
+        if (user) {
+          return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+        }
+        return of(null);
+      })
+    ); 
+  }
+
+  resetPassword(email: string) {
     try {
       return this.afAuth.sendPasswordResetEmail(email);
     } catch (error) {
       console.log('Error->', error);
     }
   }
-
+  
   async register(email: string, password: string): Promise<User> {
     try {
       const { user } = await this.afAuth.createUserWithEmailAndPassword(email, password);
+      await this.sendVerificationEmail();
       return user;
     } catch (error) {
       console.log('Error->', error);
     }
+  }
+
+  
+  isEmailVerified(user:User):boolean{
+    if(user.emailVerified){
+      return true;
+    }else{
+      return false;
+    } 
   }
 
   async login(email: string, password: string): Promise<User> {
@@ -51,7 +77,6 @@ export class AuthService {
     }
   }
 
-
   async logout(): Promise<void> {
     try {
       await this.afAuth.signOut();
@@ -60,15 +85,23 @@ export class AuthService {
     }
   }
 
+  async sendVerificationEmail():Promise<void>{
+    try{
+      return (await this.afAuth.currentUser).sendEmailVerification();
+    }catch(error){
+      alert(error);
+    }
+  }
+
   private updateUserData(user: User) {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
-
     const data: User = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
+      emailVerified: user.emailVerified
     };
-
-    return userRef.set(data, { merge: true });
+    return userRef.set(data, { merge:true });
   }
+
 }

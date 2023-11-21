@@ -6,6 +6,16 @@
           "PIA-AM033"
         ]
       }
+    },
+    "pia-am033": {
+      "hosting": {
+        "app": [
+          "pia-am033"
+        ]
+      }
     }
+  },
+  "projects": {
+    "default": "pia-am033"
   }
 }

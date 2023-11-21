@@ -14,25 +14,26 @@ export class RegisterPage implements OnInit {
   constructor(private authSvc: AuthService, private router: Router, private guard:AuthGuard) {}
 
   ngOnInit() {
-    const auth = this.authSvc.afAuth.currentUser;
-    if(auth){
-      this.redirectUser();
-      alert("Ya hay una sesión");
-    }
+    
   }
 
   async onRegister(email, password) {
     try {
       const user = await this.authSvc.register(email.value, password.value);
-      if (user) {
-        this.redirectUser();
+      if(user){
+        this.redirectUser(this.authSvc.isEmailVerified(user));
       }
     } catch (error) {
       console.log('Error', error);
     }
   }
 
-  private redirectUser(): void {
-      this.router.navigate(['home']);
+  
+  private redirectUser(isVerified:boolean):void{
+    if(isVerified){
+      this.router.navigate(['admin']);
+    }else{
+      this.router.navigate(['verify-email']);
+    }
   }
 }
