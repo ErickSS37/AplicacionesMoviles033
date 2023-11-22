@@ -1,22 +1,27 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Verification </ion-title>
+    <ion-title>BIENVENIDO</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-row>
     <ion-col>
-      <h2>Thank you for Registering!</h2>
-      <p>Please check your email and click on the link to verify your email address.</p>
+      <h2>¡Gracias por registrate!</h2>
+      <p>Por favor revisa tu correo y haz click en el enlace para verificar tu cuenta.</p>
     </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col>
       <ion-button type="submit" color="primary" expand="block" (click)="sendVerE()"
-        >Resend verification email</ion-button
-      >
+        >Reenviar correo de verificación</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-button type="submit" color="danger" expand="block" [routerLink]="['/login']"
+        >Iniciar Sesión</ion-button>
     </ion-col>
   </ion-row>
 </ion-content>
