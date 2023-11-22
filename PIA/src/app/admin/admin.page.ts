@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+<<<<<<< Updated upstream
+=======
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Articulos } from '../models/articulos.interface';
+import * as firebase from 'firebase';
+import { User } from '../shared/user.interface';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-admin',
@@ -19,8 +26,31 @@ export class AdminPage implements OnInit{
 
   logout(){
       this.authSvc.logout();
-      this.redirectUserLogin();
+      this.router.navigate(['/home'])
   }
+
+  eliminarCuenta(event: any) {
+    const usuario = firebase.auth().currentUser;
+  
+    if (!usuario) {
+      console.error('No hay usuario autenticado.');
+      // Detener la propagación del evento si es necesario
+      event.stopPropagation();
+      return;
+    }
+  
+    usuario.delete()
+      .then(() => {
+        console.log('Cuenta eliminada con éxito.');
+      })
+      .catch((error) => {
+        console.error('Error al eliminar la cuenta:', error.message);
+      });
+  
+    // Detener la propagación del evento si es necesario
+    event.stopPropagation();
+  }
+  
 
   redirectUserLogin(): void {
     this.router.navigate(['/login']);

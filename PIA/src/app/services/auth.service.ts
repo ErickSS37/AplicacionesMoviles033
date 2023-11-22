@@ -7,6 +7,7 @@ import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import * as auth from 'firebase/auth';
+import * as firebase from 'firebase';
 
 
 @Injectable({
@@ -118,7 +119,21 @@ export class AuthService {
     };
     return userRef.set(userData, { merge:true });
   }
-
   
+  eliminarCuenta() {
+    const usuario = firebase.auth().currentUser;
+    if (usuario) {
+      usuario.delete()
+        .then(() => {
+          console.log('Cuenta eliminada con éxito.');
+        })
+        .catch((error) => {
+          console.error('Error al eliminar la cuenta:', error.message);
+        });
+    } else {
+      console.error('No hay usuario autenticado.');
+    }
+  }
+
 
 }
