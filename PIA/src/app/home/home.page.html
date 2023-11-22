@@ -11,11 +11,6 @@
           Iniciar Sesión
         </ion-button>
       </ion-item>
-      <ion-item>
-        <ion-button [routerLink] = "['/login']" fill="clear">
-          Conócenos
-        </ion-button>
-      </ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>
@@ -38,16 +33,17 @@
         </ion-card-header>
       
         <ion-card-content>
-          {{item.tipo}} #Para añadir este artículo a los destacados
+          {{item.tipo}}<br>Para acceder a todo el catálogo:
         </ion-card-content>
         
         <ion-button fill="clear" [routerLink]="['/login']">Inicia Sesión</ion-button>
       </ion-card>
     </ion-item>
   </ion-list>
+
+  <h2></h2>
   <ion-infinite-scroll>
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
   </ion-infinite-scroll>
 
-  
 </ion-content>

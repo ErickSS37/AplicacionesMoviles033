@@ -16,9 +16,7 @@ export class AdminPage implements OnInit{
   }
 
   ngOnInit() {
-      for (let i = 1; i < 11; i++){
-          this.articulos.push(this.articulos[i]);
-      }
+      
   }
 
   logout(){
