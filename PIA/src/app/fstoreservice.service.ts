@@ -7,19 +7,6 @@ import { element } from 'protractor';
 })
 export class FstoreserviceService {
 
-  constructor(private fs:AngularFirestoreDocument) { }
-
-
-
-  addArt(arts:Articulos){
-    return this.fs.collection("destacados").add(arts);
-  }
-
-  getArt():any{
-    return array.forEach(element => {
-      this.fs.collection("destacados").get();
-    });
-  }
-
+  constructor(private fs:AngularFirestoreDocument) { } 
 
 }

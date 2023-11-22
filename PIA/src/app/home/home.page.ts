@@ -19,15 +19,7 @@ export class HomePage implements OnInit{
 
   constructor(private authSvc:AuthService, private router:Router){}
 
-  logout(){
-    this.authSvc.logout().then(()=>{
-      this.redirectUser();
-    });
-  }
-
-  private redirectUser(): void {
-    this.router.navigate(['home']);
-  }
+ 
 
   articulos = [
     {

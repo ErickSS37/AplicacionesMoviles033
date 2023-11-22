@@ -32,14 +32,6 @@ export class AdminPage implements OnInit{
     this.router.navigate(['/login']);
   }
 
-  insertarArticulo(nombre, precio, tipo){
-    const art:Articulos = {
-      nombre: nombre.value,
-      precio: precio.value,
-      tipo: tipo.value
-    }
-    this.store.addArt(art);
-  }
 
   articulos = [
     {

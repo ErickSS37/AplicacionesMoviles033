@@ -10,8 +10,7 @@ import { Articulos } from '../models/articulos.interface';
 export class FavPage implements OnInit {
 
   constructor(private store:FstoreserviceService) { }
-  articulos:any=[];
-  //articulos:any = this.store.getArt(this.articulos);
+ 
   ngOnInit() {
     
   }

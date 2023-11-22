@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './shared/auth.guard';
-import { AngularFireAuth } from '@angular/fire/auth';
+
 
 const routes: Routes = [
   {
@@ -26,7 +25,6 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then((m) => m.AdminPageModule),
-    canActivate:[AuthGuard]
   },
   {
     path: 'verify-email',
@@ -40,13 +38,7 @@ const routes: Routes = [
   {
     path: 'fav',
     loadChildren: () => import('./fav/fav.module').then( m => m.FavPageModule),
-    canActivate:[AuthGuard]
-  },
-
-
-
-  
-
+  }
   
 ];
 

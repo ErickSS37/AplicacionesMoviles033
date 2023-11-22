@@ -21,7 +21,7 @@ export class LoginPage implements OnInit{
     .login(email.value, password.value)
     .then((): any => {
       if (this.authSvc.isEmailVerified) {
-        this.router.navigate(['/admin']);
+        this.router.navigate(['admin']);
       } else {
         window.alert('Email is not verified');
         return false;
