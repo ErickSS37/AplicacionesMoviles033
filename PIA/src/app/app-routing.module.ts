@@ -7,7 +7,6 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then((m) => m.HomePageModule),
-    
   },
   {
     path: '',
@@ -27,7 +26,7 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then((m) => m.AdminPageModule),
-    canActivate: [AuthGuard]
+    canActivate:[AuthGuard]
   },
   {
     path: 'verify-email',
@@ -35,11 +34,15 @@ const routes: Routes = [
   },
   {
     path: 'user-config',
-    loadChildren: () => import('./user-config/user-config.module').then( m => m.UserConfigPageModule)
-  },  {
-    path: 'info',
-    loadChildren: () => import('./info/info.module').then( m => m.InfoPageModule)
+    loadChildren: () => import('./user-config/user-config.module').then( m => m.UserConfigPageModule),
+    
   },
+  {
+    path: 'fav',
+    loadChildren: () => import('./fav/fav.module').then( m => m.FavPageModule),
+    canActivate:[AuthGuard]
+  },
+
 
 
   

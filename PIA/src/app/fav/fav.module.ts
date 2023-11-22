@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { InfoPageRoutingModule } from './info-routing.module';
+import { FavPageRoutingModule } from './fav-routing.module';
 
-import { InfoPage } from './info.page';
+import { FavPage } from './fav.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    InfoPageRoutingModule
+    FavPageRoutingModule
   ],
-  declarations: [InfoPage]
+  declarations: [FavPage]
 })
-export class InfoPageModule {}
+export class FavPageModule {}

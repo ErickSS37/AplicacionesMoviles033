@@ -8,21 +8,28 @@ import { User } from '../shared/user.interface';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit{
-  constructor(private authSvc: AuthService, private router: Router) {}
+  constructor(
+    public authSvc: AuthService, 
+    private router: Router) {}
 
   ngOnInit(): void {
     
   }
 
-  async onLogin(email, password) {
-    try {
-      const user = await this.authSvc.login(email.value, password.value);
-      if (user) {
-        this.redirectUser(this.authSvc.isEmailVerified(user));
+  onLogin(email:any, password:any) {
+    this.authSvc
+    .login(email.value, password.value)
+    .then((): any => {
+      if (this.authSvc.isEmailVerified) {
+        this.router.navigate(['/admin']);
+      } else {
+        window.alert('Email is not verified');
+        return false;
       }
-    } catch (error) {
-      console.log('Error->', error);
-    }
+    })
+    .catch((error) => {
+      window.alert(error.message);
+    });
   }
   
   

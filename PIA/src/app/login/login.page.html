@@ -16,7 +16,7 @@
     </ion-item>
     <ion-row>
       <ion-col>
-        <ion-button type="submit" (click)="onLogin(email, password)" expand="block" routerLink="/admin">
+        <ion-button type="submit" (click)="onLogin(email, password)" expand="block" [routerLink]="['/admin']">
           Login
         </ion-button>
       </ion-col>
@@ -24,7 +24,7 @@
     <ion-row>
       <ion-col>
         <p class="ion-text-end">
-          <a routerLink="/forgot-password">¿Olvidaste tu contraseña? </a>
+          <a [routerLink]="['/user-config']">¿Olvidaste tu contraseña? </a>
         </p>
       </ion-col>
     </ion-row>

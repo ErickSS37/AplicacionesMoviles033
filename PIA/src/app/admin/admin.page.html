@@ -7,18 +7,13 @@
   <ion-content class="ion-padding">
     <ion-list>
       <ion-item>
-        <ion-button [routerLink] = "['/admin']" fill="clear">
-          Configurar mi cuenta
-        </ion-button>
-      </ion-item>
-      <ion-item>
-        <ion-button onclick="logout()" fill="clear" [routerLink] = "['/home']">
+        <ion-button onclick="logout()" fill="clear">
           Cerrar Sesión 
         </ion-button>
       </ion-item>
       <ion-item>
-        <ion-button [routerLink] = "['/login']" fill="clear">
-          Sobre
+        <ion-button [routerLink] = "['/info']" fill="clear">
+          Conócenos
         </ion-button>
       </ion-item>
     </ion-list>
@@ -37,15 +32,11 @@
     <ion-item *ngFor="let item of articulos; let index">
       <ion-card>
         <ion-card-header>
-          <ion-card-title>{{item.nombre}}</ion-card-title>
-          <ion-card-subtitle>{{item.precio}}</ion-card-subtitle>
+          <ion-card-title #nombre>{{item.nombre}}</ion-card-title>
+          <ion-card-subtitle #precio>{{item.precio}}</ion-card-subtitle>
         </ion-card-header>
-      
-        <ion-card-content>
-          {{item.tipo}}
-        </ion-card-content>
-      
-        <ion-button fill="clear" onclick="">Estoy interesado</ion-button>
+        <ion-card-content #tipo>{{item.tipo}}</ion-card-content>
+        <ion-button fill="clear" onclick="insertarArticulo(nombre, precio, tipo)">Estoy interesado</ion-button>
       </ion-card>
     </ion-item>
   </ion-list>

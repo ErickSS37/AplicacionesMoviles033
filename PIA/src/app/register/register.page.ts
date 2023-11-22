@@ -17,15 +17,17 @@ export class RegisterPage implements OnInit {
     
   }
 
-  async onRegister(email, password) {
-    try {
-      const user = await this.authSvc.register(email.value, password.value);
-      if(user){
-        this.redirectUser(this.authSvc.isEmailVerified(user));
-      }
-    } catch (error) {
-      console.log('Error', error);
-    }
+  registro(email, password) {
+    this.authSvc
+      .register(email.value, password.value)
+      .then((res) => {
+        // Do something here
+        this.authSvc.sendVerificationEmail();
+        this.router.navigate(['/verify-email']);
+      })
+      .catch((error) => {
+        window.alert(error.message);
+      });
   }
 
   

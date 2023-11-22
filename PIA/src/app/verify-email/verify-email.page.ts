@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from './../shared/user.interface';
 import { AuthService } from './../services/auth.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-verify-email',
@@ -10,19 +12,22 @@ import { AuthService } from './../services/auth.service';
 })
 export class VerifyEmailPage implements OnInit {
 
+  constructor(
+    private authSvc: AuthService,
+    private afAuth:AngularFireAuth,  
+    private router: Router
+  ) {}
 
   ngOnInit() {
   }
 
-  user$: Observable<User> = this.authSvc.afAuth.user;
-  constructor(private authSvc: AuthService) {}
+  
 
-  async onSendEmail(): Promise<void> {
-    try {
-      await this.authSvc.sendVerificationEmail();
-    } catch (error) {
-      console.log('Error->', error);
-    }
+  async sendVerE(): Promise<void> {
+    return this.authSvc.sendVerificationEmail()
+    .then(() => {
+      this.router.navigate(['verify-email']);
+    })
   }
 
   ngOnDestroy(): void {
