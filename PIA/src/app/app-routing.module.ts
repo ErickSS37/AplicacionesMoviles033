@@ -34,10 +34,6 @@ const routes: Routes = [
     path: 'user-config',
     loadChildren: () => import('./user-config/user-config.module').then( m => m.UserConfigPageModule),
     
-  },
-  {
-    path: 'fav',
-    loadChildren: () => import('./fav/fav.module').then( m => m.FavPageModule),
   }
   
 ];
