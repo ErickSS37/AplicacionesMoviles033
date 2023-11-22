@@ -119,21 +119,6 @@ export class AuthService {
     };
     return userRef.set(userData, { merge:true });
   }
-  
-  eliminarCuenta() {
-    const usuario = firebase.auth().currentUser;
-    if (usuario) {
-      usuario.delete()
-        .then(() => {
-          console.log('Cuenta eliminada con éxito.');
-        })
-        .catch((error) => {
-          console.error('Error al eliminar la cuenta:', error.message);
-        });
-    } else {
-      console.error('No hay usuario autenticado.');
-    }
-  }
 
 
 }

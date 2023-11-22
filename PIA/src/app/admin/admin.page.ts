@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-<<<<<<< Updated upstream
-=======
-import { AngularFireAuth } from '@angular/fire/auth';
-import { Articulos } from '../models/articulos.interface';
 import * as firebase from 'firebase';
-import { User } from '../shared/user.interface';
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-admin',
@@ -29,7 +23,7 @@ export class AdminPage implements OnInit{
       this.router.navigate(['/home'])
   }
 
-  eliminarCuenta(event: any) {
+  eliminarCuenta() {
     const usuario = firebase.auth().currentUser;
   
     if (!usuario) {
