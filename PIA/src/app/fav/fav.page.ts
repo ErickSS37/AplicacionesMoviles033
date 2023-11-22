@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FstoreserviceService } from '../fstoreservice.service';
 import { Articulos } from '../models/articulos.interface';
 
 @Component({
@@ -9,7 +8,7 @@ import { Articulos } from '../models/articulos.interface';
 })
 export class FavPage implements OnInit {
 
-  constructor(private store:FstoreserviceService) { }
+  constructor() { }
  
   ngOnInit() {
     

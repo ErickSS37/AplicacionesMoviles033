@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { FstoreserviceService } from '../fstoreservice.service';
 import { Articulos } from '../models/articulos.interface';
 
 @Component({
@@ -12,14 +11,13 @@ import { Articulos } from '../models/articulos.interface';
 })
 
 export class AdminPage implements OnInit{
-  userData:any;
 
-  constructor(private authSvc:AuthService, private router:Router, private store:FstoreserviceService) { 
+  constructor(private authSvc:AuthService, private router:Router) { 
   }
 
   ngOnInit() {
       for (let i = 1; i < 11; i++){
-        this.articulos.push(this.articulos[i]);
+          this.articulos.push(this.articulos[i]);
       }
   }
 
